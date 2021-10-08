@@ -2,7 +2,7 @@
 
 GYM management app designed with javaFX interface elements and some extras.
 - connects to MySQL DB
-- multiple user ranks for customers, trainers and admins
+- multiple user ranks for customers, trainers and managers
 - last modified: 30.05.2020
 ---------------------------------------------------------------------------
 Customer abilities:
