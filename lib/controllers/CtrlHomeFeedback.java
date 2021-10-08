@@ -74,7 +74,7 @@ public class CtrlHomeFeedback implements Initializable
         if(CtrlLogin.user.isManager() || CtrlLogin.user.isTrainer())
         {
             label1.setText("The feedback option is not for you!");
-            label2.setText("Please go back and mind your bussines!");
+            label2.setText("Please go back and mind your business!");
             textArea.setPromptText("I SAID THE FEEDBACK OPTION IS NOT FOR YOU!");
             textArea.setDisable(true);
             trainer.setDisable(true);
