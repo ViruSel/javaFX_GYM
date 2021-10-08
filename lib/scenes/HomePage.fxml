@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="holderPane" prefHeight="507.0" prefWidth="965.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CtrlHomePage">
+   <children>
+      <Pane layoutX="-2.0" prefHeight="507.0" prefWidth="974.0" style="-fx-background-color: #121212;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0" />
+      <JFXButton layoutY="66.0" onAction="#subscriptionButtonAction" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2d2d2d;" text=" " textFill="WHITE">
+         <graphic>
+            <MaterialIconView fill="#960001" glyphName="EURO_SYMBOL" size="150" wrappingWidth="144.99999526329339" />
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutY="307.0" onAction="#hallsButtonAction" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2d2d2d;" text=" " textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="136.0" fitWidth="126.0" pickOnBounds="true" preserveRatio="true" smooth="false" x="1.0" y="1.0">
+               <image>
+                  <Image url="@../assets/Halls.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="512.0" layoutY="66.0" onAction="#trainerButtonAction" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2d2d2d;" text=" " textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="144.0" fitWidth="158.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" x="1.0" y="1.0">
+               <image>
+                  <Image url="@../assets/trainer material.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="512.0" layoutY="307.0" onAction="#feedbackButtonAction" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2d2d2d;" text=" " textFill="WHITE">
+         <graphic>
+            <MaterialIconView fill="#960001" glyphName="FEEDBACK" size="150" wrappingWidth="139.0" />
+         </graphic>
+      </JFXButton>
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="213.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Purchase Subscription" underline="true" wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="213.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Renew or buy a new subscription at the best GYM out here." wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="213.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Without a subscription you are not eligible to use our GYM's!" wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="213.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose a Hall" underline="true" wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="724.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose a trainer" underline="true" wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="724.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Give us a Feedback!" underline="true" wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="724.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tell us about your experience at our GYM's  or within this App and help us improve them!" wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="724.0" layoutY="502.0" strokeType="OUTSIDE" strokeWidth="0.0" text="At least we will try to improve!" wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="724.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wanna have the body of a bodybuilder? or the silhouette of a goddess?" wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="724.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose your desired trainer here!" wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="213.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose where you want to exercise from the Yoga to the Aerobics hall." wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="213.0" layoutY="483.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Some halls might be occupied so you'll have to wait a little!" wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

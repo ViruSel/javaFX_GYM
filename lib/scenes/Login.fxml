@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="holderPane" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="896.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CtrlLogin">
+   <children>
+      <JFXTextField fx:id="username" focusColor="#960001" layoutX="148.0" layoutY="70.0" prefHeight="45.0" prefWidth="233.0" promptText=" USERNAME">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXPasswordField fx:id="password" focusColor="#960001" layoutX="148.0" layoutY="131.0" prefHeight="45.0" prefWidth="233.0" promptText=" PASSWORD">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXCheckBox fx:id="rememberMe" checkedColor="#960001" layoutX="148.0" layoutY="197.0" text="Remember me" textFill="#dddddd" />
+      <JFXButton fx:id="login" defaultButton="true" layoutX="148.0" layoutY="241.0" onAction="#loginAction" prefHeight="45.0" prefWidth="108.0" ripplerFill="WHITE" style="-fx-background-color: #960001;" text="Login" textAlignment="CENTER" textFill="WHITE" />
+      <JFXButton fx:id="signUp" alignment="BOTTOM_LEFT" layoutX="140.0" layoutY="311.0" onAction="#signUpAction" prefHeight="31.0" prefWidth="233.0" ripplerFill="WHITE" text="Don't have an account? Sign Up" textFill="WHITE" />
+      <Label layoutX="584.0" layoutY="149.0" prefHeight="113.0" prefWidth="172.0" text="GYM" textAlignment="CENTER" textFill="#960001">
+         <font>
+            <Font name="Impact" size="96.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="loading" fitHeight="38.0" fitWidth="62.0" layoutX="283.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Loading.gif" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

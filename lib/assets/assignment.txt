@@ -1,0 +1,26 @@
+The gym manager:
+-        is able to see details of each GYM hall.
+-        is able to add new trainers
+-        is able to see the total working hours and customers’ feedbacks for each trainer at the end of each month
+
+The trainer:
+-        has a profile where the customers can see details about him and DON'T(short videos, photos.)
+-        is able to accept notifications from new customers that want to collaborate with him
+-        is able to submit a daily exercise plan with steps assigned to each equipment for a specified duration in minutes
+-        is able to create a diet and assign it to his customers
+
+The customer:
+-        is able to subscribe to a particular hall, at a particular time and date, with a particular trainer, with a specified exercise plan for one month.
+X        is able to send feedback about his trainer to the manager of the gym hall
+X        is able to see all available trainers sorted by rating stars gave by previous customers.
+
+- The system should check the availability of trainer and the equipments listed in the exercise plan at the time chosen by the customer, before adding a new subscription.
+? The application should have minimum 10 unit tests.
+X The application should have a graphical user interface in JavaFX.
+X The application should handle the exceptions.
+? The code of the application should be easy to be refactored in case the database engine is changed.
+
+For mark 5:
+X        minimum 3 scenario fully functional
+?        minimum 3 unit tests
+X        minimum 2 exceptions handling

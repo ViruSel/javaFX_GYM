@@ -1,0 +1,10 @@
+// Navbar with animationfx + transparent black background
+// Trainer has Trainer_data
+// Manager has Manager_data
+// Continuous animation (dont clear page) swipe away animation
+// edit profile info
+// button for food
+// repeat password
+// date & time when you start subscription
+// trainer activity start - stop button
+// email button error fix pls asap
