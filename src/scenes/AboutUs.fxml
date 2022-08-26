@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="675.0" prefWidth="1036.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CtrlAboutUs">
+   <children>
+      <Label layoutX="422.0" layoutY="14.0" text="About us" textFill="WHITE">
+         <font>
+            <Font name="Impact" size="60.0" />
+         </font>
+      </Label>
+      <Separator layoutX="213.0" layoutY="134.0" prefHeight="0.0" prefWidth="644.0" />
+      <AnchorPane layoutX="46.0" layoutY="136.0" prefHeight="507.0" prefWidth="965.0">
+         <children>
+            <Label layoutX="360.0" layoutY="115.0" text="Not much to see here at all!" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="278.0" layoutY="383.0" text="Also dont forget to call us if something/someone annoys you!" textFill="WHITE" />
+            <Label layoutX="245.0" layoutY="145.0" text="We have a pretty much legal bussines promitong diferent types of gym!" textFill="WHITE" />
+            <Label layoutX="408.0" layoutY="404.0" text="doesn't apply for non staff people!" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="338.0" layoutY="254.0" text="We think we signed all those legal contracts" textFill="WHITE" />
+            <Label layoutX="421.0" layoutY="275.0" text="I hope i didn't miss anything" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

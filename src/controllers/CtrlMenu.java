@@ -1,12 +1,9 @@
 package controllers;
 
-import animatefx.animation.*;
-import com.jfoenix.controls.*;
-import database.MySQLuser;
+import animatefx.animation.SlideInLeft;
+import com.jfoenix.controls.JFXButton;
 import gym.Main;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,8 +12,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.transform.Scale;
 import javafx.stage.Stage;
@@ -71,7 +66,22 @@ public class CtrlMenu implements Initializable
     private void homeButtonAction() { setPageHome(); }
 
     @FXML
-    private void ProfileButtonAction() { setPageProfile(); }
+    private void profileButtonAction() { setPageProfile(); }
+
+    @FXML
+    private void contactInfoButtonAction() { setPageContactInfo(); }
+
+    @FXML
+    private void aboutUsButtonAction() { setPageAboutUs(); }
+
+    @FXML
+    private void settingsButtonAction() { setPageSettings(); }
+
+    @FXML
+    private void trainerToolsButtonAction() { setPageTrainerTools(); }
+
+    @FXML
+    private void managerToolsButtonAction() { setPageManagerTools(); }
 
     @FXML
     private void logOutAction()
@@ -157,7 +167,7 @@ public class CtrlMenu implements Initializable
     private void setNode(Node node)
     {
         holderPane.getChildren().clear();
-        holderPane.getChildren().add((Node) node);
+        holderPane.getChildren().add(node);
 
         SlideInLeft slideInLeft = new SlideInLeft(changedPane);
         slideInLeft.setNode(node);
@@ -181,6 +191,55 @@ public class CtrlMenu implements Initializable
         try {
             changedPane = FXMLLoader.load(getClass().getResource("../scenes/Profile.fxml"));
             setNode(changedPane);
+        }
+        catch (IOException e) { e.printStackTrace(); }
+    }
+
+    private void setPageContactInfo()
+    {
+        try {
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/ContactInfo.fxml"));
+            setNode(changedPane);
+        }
+        catch (IOException e) { e.printStackTrace(); }
+    }
+
+    private void setPageAboutUs()
+    {
+        try {
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/AboutUs.fxml"));
+            setNode(changedPane);
+
+        }
+        catch (IOException e) { e.printStackTrace(); }
+    }
+
+    private void setPageSettings()
+    {
+        try {
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/Settings.fxml"));
+            setNode(changedPane);
+
+        }
+        catch (IOException e) { e.printStackTrace(); }
+    }
+
+    private void setPageTrainerTools()
+    {
+        try {
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/TrainerTools.fxml"));
+            setNode(changedPane);
+
+        }
+        catch (IOException e) { e.printStackTrace(); }
+    }
+
+    private void setPageManagerTools()
+    {
+        try {
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/ManagerTools.fxml"));
+            setNode(changedPane);
+
         }
         catch (IOException e) { e.printStackTrace(); }
     }

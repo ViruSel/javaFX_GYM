@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="holderPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CtrlTrainerToolsDiet">
+   <children>
+      <Pane prefHeight="549.0" prefWidth="1036.0" style="-fx-background-color: #121212;">
+         <children>
+            <JFXButton fx:id="back" layoutX="14.0" layoutY="14.0" onAction="#backButtonAction" prefHeight="46.0" prefWidth="30.0" text=" " textFill="WHITE">
+               <graphic>
+                  <MaterialIconView fill="WHITE" glyphName="ARROW_BACK" size="25" wrappingWidth="15.0" />
+               </graphic>
+            </JFXButton>
+            <JFXListView fx:id="customerList" layoutX="127.0" layoutY="201.0" prefHeight="272.0" prefWidth="736.0" showTooltip="true" verticalGap="1.0" />
+            <Label layoutX="439.0" layoutY="122.0" text="Customers" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="289.0" layoutY="50.0" text="Here you are supposed to assign a diet" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

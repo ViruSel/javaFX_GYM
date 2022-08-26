@@ -1,24 +1,30 @@
 package controllers;
 
 import animatefx.animation.SlideInLeft;
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.JFXTextField;
+import database.DB;
+import database.User;
+import database.UserData;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import java.io.IOException;
-import java.net.URL;
-import java.sql.*;
-import java.util.ResourceBundle;
-import com.jfoenix.controls.*;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
-import database.*;
+import java.io.IOException;
+import java.net.URL;
+import java.sql.*;
+import java.util.ResourceBundle;
 
 public class CtrlSignUp implements Initializable
 {
@@ -55,9 +61,9 @@ public class CtrlSignUp implements Initializable
     ToggleGroup tg = new ToggleGroup();
 
     // SQL //
-    MySQLdb db = new MySQLdb();
-    MySQLuser user;
-    MySQLuser_data user_data;
+    DB db = new DB();
+    User user;
+    UserData user_data;
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -71,9 +77,9 @@ public class CtrlSignUp implements Initializable
         tel.setStyle("-fx-text-inner-color: white;");
         email.setStyle("-fx-text-inner-color: white;");
         city.setStyle("-fx-text-inner-color: white;");
-        male.getStylesheets().add("src/assets/virus.css");
+        male.getStylesheets().add("assets/virus.css");
         male.setToggleGroup(tg);
-        female.getStylesheets().add("src/assets/virus.css");
+        female.getStylesheets().add("assets/virus.css");
         female.setToggleGroup(tg);
     }
 
@@ -226,7 +232,7 @@ public class CtrlSignUp implements Initializable
                     loading.setVisible(false);
 
                     // CREATE USER DATA
-                    user_data = new MySQLuser_data(
+                    user_data = new UserData(
                             username.getText(),
                             password.getText(),
                             name.getText(),
@@ -239,7 +245,7 @@ public class CtrlSignUp implements Initializable
                     );
 
                     // CREATE USER AFTER USER_DATA
-                    user = new MySQLuser(
+                    user = new User(
                             username.getText(),
                             password.getText()
                     );
@@ -249,6 +255,8 @@ public class CtrlSignUp implements Initializable
 
                     db.insertUserData(user_data);
                     db.insertUser(user);
+
+                    userDataHasNotNullValues(user_data);
 
                     setPageLogin();
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -260,6 +268,42 @@ public class CtrlSignUp implements Initializable
             }
             catch (SQLException e) { e.printStackTrace(); }
         }
+    }
+
+    // NOT NULL ENTRIES IN DB SO NO ERRORS IN JAVA
+    private void userDataHasNotNullValues(UserData user_data)
+    {
+        try {
+            Connection con = DriverManager.getConnection(db.getHOST(), db.getUSERNAME(), db.getPASSWORD());
+            String gymTrainer = "UPDATE `user_data` SET `gymTrainer` =" + "''" + " WHERE (`username`='" + user_data.getUsername() + "');";
+            String gymAerobics = "UPDATE `user_data` SET `aerobicsTrainer` =" + "''" + " WHERE (`username`='" + user_data.getUsername() + "');";
+            String gymYoga = "UPDATE `user_data` SET `yogaTrainer` =" + "''" + " WHERE (`username`='" + user_data.getUsername() + "');";
+            String gymRequest = "UPDATE `user_data` SET `requestGymTrainer` =" + "''" + " WHERE (`username`='" + user_data.getUsername() + "');";
+            String aerobicsRequest = "UPDATE `user_data` SET `requestAerobicsTrainer` =" + "''" + " WHERE (`username`='" + user_data.getUsername() + "');";
+            String yogaRequest = "UPDATE `user_data` SET `requestYogaTrainer` =" + "''" + " WHERE (`username`='" + user_data.getUsername() + "');";
+            String exercisePlan = "UPDATE `user_data` SET `exercisePlan` =" + "''" + " WHERE (`username`='" + user_data.getUsername() + "');";
+            String diet = "UPDATE `user_data` SET `diet` =" + "''" + " WHERE (`username`='" + user_data.getUsername() + "');";
+            String hall = "UPDATE `user_data` SET `hall` =" + "''" + " WHERE (`username`='" + user_data.getUsername() + "');";
+            PreparedStatement ps1 = con.prepareStatement(gymTrainer);
+            PreparedStatement ps2 = con.prepareStatement(gymAerobics);
+            PreparedStatement ps3 = con.prepareStatement(gymYoga);
+            PreparedStatement ps4 = con.prepareStatement(gymRequest);
+            PreparedStatement ps5 = con.prepareStatement(aerobicsRequest);
+            PreparedStatement ps6 = con.prepareStatement(yogaRequest);
+            PreparedStatement ps7 = con.prepareStatement(exercisePlan);
+            PreparedStatement ps8 = con.prepareStatement(diet);
+            PreparedStatement ps9 = con.prepareStatement(hall);
+            ps1.executeUpdate();
+            ps2.executeUpdate();
+            ps3.executeUpdate();
+            ps4.executeUpdate();
+            ps5.executeUpdate();
+            ps6.executeUpdate();
+            ps7.executeUpdate();
+            ps8.executeUpdate();
+            ps9.executeUpdate();
+        }
+        catch (SQLException throwables) { throwables.printStackTrace(); }
     }
 
     private String getGender()

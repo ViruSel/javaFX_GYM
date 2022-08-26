@@ -1,26 +1,34 @@
 package controllers;
 
 import animatefx.animation.SlideInLeft;
-import com.jfoenix.controls.*;
-import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import database.MySQLdb;
-import database.MySQLuser;
-import database.MySQLuser_data;
-import javafx.beans.value.ObservableValue;
+import animatefx.animation.SlideInRight;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXListView;
+import database.DB;
+import database.TrainerData;
+import database.User;
+import database.UserData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Callback;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class CtrlHomeTrainers implements Initializable
@@ -30,40 +38,51 @@ public class CtrlHomeTrainers implements Initializable
     @FXML
     private AnchorPane changedPane;
     @FXML
+    private Pane adminPane;
+    @FXML
+    private Label adminText;
+    @FXML
     private JFXButton back;
     @FXML
-    private JFXTreeTableView<MySQLuser_data> table;
+    private JFXListView<UserData> gymList;
+    @FXML
+    private JFXListView<UserData> aerobicsList;
+    @FXML
+    private JFXListView<UserData> yogaList;
 
-    private final MySQLdb db = new MySQLdb();
+    private final DB db = new DB();
+    public static UserData selectedUserData = new UserData();
 
-    JFXTreeTableColumn<MySQLuser_data, String> name = new JFXTreeTableColumn<>("Name");
-    JFXTreeTableColumn<MySQLuser_data, String> lastName = new JFXTreeTableColumn<>("Last Name");
-    JFXTreeTableColumn<MySQLuser_data, String> age = new JFXTreeTableColumn<>("Age");
-    JFXTreeTableColumn<MySQLuser_data, String> gender = new JFXTreeTableColumn<>("Gender");
-    JFXTreeTableColumn<MySQLuser_data, String> tel = new JFXTreeTableColumn<>("Tel.");
-    JFXTreeTableColumn<MySQLuser_data, String> email = new JFXTreeTableColumn<>("Email");
-
-    ObservableList<MySQLuser_data> trainerList = FXCollections.observableArrayList();
+    ObservableList<UserData> gymTrainerList = FXCollections.observableArrayList();
+    ObservableList<UserData> aerobicsTrainerList = FXCollections.observableArrayList();
+    ObservableList<UserData> yogaTrainerList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-
         back.getStylesheets().add("assets/virus_titlebar.css");
+        gymList.getStylesheets().add("assets/virus_table.css");
+        aerobicsList.getStylesheets().add("assets/virus_table.css");
+        yogaList.getStylesheets().add("assets/virus_table.css");
+        gymList.setStyle("-fx-border-color: #000000");
 
-        name.setPrefWidth(100);
-        lastName.setPrefWidth(100);
-        age.setPrefWidth(100);
-        gender.setPrefWidth(100);
-        tel.setPrefWidth(100);
-        email.setPrefWidth(200);
+        setGymList(gymList);
+        setGymList(aerobicsList);
+        setGymList(yogaList);
 
-        setCells();
+        gymList.setItems(gymTrainerList);
+        aerobicsList.setItems(aerobicsTrainerList);
+        yogaList.setItems(yogaTrainerList);
+
+        adminPane.setVisible(false);
+        adminText.setVisible(false);
+
         checkTrainer();
+        showTrainers();
     }
 
     @FXML
-    private void backButtonAction()
+    public void backButtonAction()
     {
         try {
             changedPane = FXMLLoader.load(getClass().getResource("../scenes/HomePage.fxml"));
@@ -73,19 +92,29 @@ public class CtrlHomeTrainers implements Initializable
         catch (IOException e) { e.printStackTrace(); }
     }
 
-    private void setNode(Node node)
+    private void viewTrainer(UserData userData)
     {
-        holderPane.getChildren().clear();
-        holderPane.getChildren().add((Node) node);
+        selectedUserData = userData;
 
-        SlideInLeft slideInLeft = new SlideInLeft(changedPane);
-        slideInLeft.setNode(node);
-        slideInLeft.setCycleCount(1);
-        slideInLeft.setSpeed(1);
-        slideInLeft.play();
+        try {
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/HomeTrainerProfile.fxml"));
+            setNodeTrainers(changedPane);
+
+        }
+        catch (IOException e) { e.printStackTrace(); }
     }
 
     private void checkTrainer()
+    {
+        if(CtrlLogin.user.isTrainer())
+        {
+            adminPane.setVisible(true);
+            adminText.setVisible(true);
+            adminText.setText("You are a trainer, why would someone train you?"+'\n'+"Train yourself!");
+        }
+    }
+
+    private void showTrainers()
     {
         try{
             Connection con = DriverManager.getConnection(db.getHOST(), db.getUSERNAME(), db.getPASSWORD());
@@ -94,50 +123,90 @@ public class CtrlHomeTrainers implements Initializable
 
             while(rs.next())
             {
-                MySQLuser user = new MySQLuser(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getString("rank"), rs.getString("subscription"));
-                MySQLuser_data user_data = db.getUserDataByUsername(user.getUsername());
-                trainerList.add(user_data);
+                User user = new User(rs.getString("username"), rs.getString("password"), rs.getString("rank"), rs.getString("subscription"));
+                TrainerData trainerData = db.getTrainerDataByUsername(user.getUsername());
+                UserData userData = db.getUserDataByUsername(user.getUsername());
+
+                checkTrainerSpecialization(trainerData, userData);
             }
 
-            final TreeItem<MySQLuser_data> root = new RecursiveTreeItem<>(trainerList, RecursiveTreeObject::getChildren);
-            table.getColumns().setAll(name,lastName,age,gender,tel,email);
-            table.setRoot(root);
-            table.setShowRoot(false);
         }
         catch (SQLException throwables) { throwables.printStackTrace(); }
     }
 
-    private void setCells()
+    private void checkTrainerSpecialization(TrainerData trainerData, UserData userData)
     {
-        name.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<MySQLuser_data, String>, ObservableValue<String>>()
+        switch (trainerData.getSpecialization())
         {
-            @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<MySQLuser_data, String> param) { return param.getValue().getValue().getNameObs(); }
-        });
+            case "GYM":
+                gymTrainerList.add(userData);
+                break;
+            case "Aerobics":
+                aerobicsTrainerList.add(userData);
+                break;
+            case "Yoga":
+                yogaTrainerList.add(userData);
+                break;
+        }
+    }
 
-        lastName.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<MySQLuser_data, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<MySQLuser_data, String> param) { return param.getValue().getValue().getLastNameObs(); }
-        });
+    class Cell extends ListCell<UserData>
+    {
+        HBox hBox = new HBox();
+        JFXButton viewButton = new JFXButton("View");
+        Label label = new Label();
+        Pane pane = new Pane();
+        Image profilePic = new Image("assets/trainer material LLQ.png");
+        ImageView img = new ImageView(profilePic);
 
-        age.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<MySQLuser_data, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<MySQLuser_data, String> param) { return param.getValue().getValue().getAgeObs(); }
-        });
+        public Cell()
+        {
+            super();
 
-        gender.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<MySQLuser_data, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<MySQLuser_data, String> param) { return param.getValue().getValue().getGenderObs(); }
-        });
+            hBox.getChildren().addAll(img,label,pane, viewButton);
+            HBox.setHgrow(pane, Priority.ALWAYS);
+        }
 
-        tel.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<MySQLuser_data, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<MySQLuser_data, String> param) { return param.getValue().getValue().getTelObs(); }
-        });
+        public void updateItem(UserData userData, boolean empty)
+        {
+            super.updateItem(userData, empty);
+            setText(null);
+            setGraphic(null);
 
-        email.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<MySQLuser_data, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<MySQLuser_data, String> param) { return param.getValue().getValue().getEmailObs(); }
-        });
+            if(userData!=null && !empty)
+            {
+                label.setStyle("-fx-text-fill: white; -fx-font-size: 20");
+                viewButton.setStyle("-fx-background-color: #960001; -fx-text-fill: white");
+                viewButton.setOnAction(event -> viewTrainer(userData));
+                label.setText(" "+userData.getName()+" "+userData.getLastName());
+                setGraphic(hBox);
+            }
+        }
+    }
+
+    private void setGymList(JFXListView<UserData> list) { list.setCellFactory(param -> new Cell()); }
+
+    private void setNode(Node node)
+    {
+        holderPane.getChildren().clear();
+        holderPane.getChildren().add(node);
+
+        SlideInLeft slideInLeft = new SlideInLeft(changedPane);
+        slideInLeft.setNode(node);
+        slideInLeft.setCycleCount(1);
+        slideInLeft.setSpeed(1);
+        slideInLeft.play();
+    }
+
+    private void setNodeTrainers(Node node)
+    {
+        holderPane.getChildren().clear();
+        holderPane.getChildren().add(node);
+
+        SlideInRight slideInRight = new SlideInRight(changedPane);
+        slideInRight.setNode(node);
+        slideInRight.setCycleCount(1);
+        slideInRight.setSpeed(1);
+        slideInRight.play();
     }
 }

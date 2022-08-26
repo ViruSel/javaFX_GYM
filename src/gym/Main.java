@@ -1,12 +1,11 @@
 package gym;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
-import java.util.Objects;
 
 public class Main extends Application
 {
@@ -17,7 +16,7 @@ public class Main extends Application
     {
         try
         {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../scenes/Main.fxml")));
+            Parent root = FXMLLoader.load(getClass().getResource("../scenes/Main.fxml"));
             Scene scene = new Scene(root);
             primaryStage.initStyle(StageStyle.UNDECORATED);
             primaryStage.setScene(scene);
@@ -29,4 +28,5 @@ public class Main extends Application
     }
 
     public static void main(String[] args) { launch(args); }
+
 }

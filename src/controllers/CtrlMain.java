@@ -1,13 +1,9 @@
 package controllers;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import animatefx.animation.SlideInLeft;
 import animatefx.animation.SlideInRight;
 import com.jfoenix.controls.JFXButton;
 import gym.Main;
-import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +12,10 @@ import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import javafx.util.Duration;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class CtrlMain implements Initializable
 {
@@ -47,22 +46,10 @@ public class CtrlMain implements Initializable
     }
 
     @FXML
-    public void loginAction()
-    {
-        PauseTransition pt = new PauseTransition();
-        pt.setDuration(Duration.seconds(.10));
-        pt.setOnFinished(e -> setPageLogin());
-        pt.play();
-    }
+    public void loginAction() { setPageLogin(); }
 
     @FXML
-    public void signUpAction()
-    {
-        PauseTransition pt = new PauseTransition();
-        pt.setDuration(Duration.seconds(.10));
-        pt.setOnFinished(e -> setPageSignUp());
-        pt.play();
-    }
+    public void signUpAction() { setPageSignUp(); }
 
     @FXML
     private void minimizeAction()

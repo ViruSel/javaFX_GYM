@@ -4,7 +4,7 @@ import animatefx.animation.SlideInLeft;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextArea;
-import javafx.event.ActionEvent;
+import database.DB;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,8 +13,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
+
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class CtrlHomeFeedback implements Initializable
@@ -40,6 +45,8 @@ public class CtrlHomeFeedback implements Initializable
     @FXML
     private ToggleGroup tg = new ToggleGroup();
 
+    private DB db = new DB();
+
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
@@ -53,13 +60,25 @@ public class CtrlHomeFeedback implements Initializable
     }
 
     @FXML
-    private void sendButtonAction()
+    public void sendButtonAction()
     {
+        if(trainer.isSelected() || manager.isSelected())
+        try{
+            Connection con = DriverManager.getConnection(db.getHOST(),db.getUSERNAME(),db.getPASSWORD());
+            String sql = "INSERT INTO `feedback` (`forWho`, `text`) VALUES ('"+findForWho()+"'"+","+"'"+textArea.getText()+"');";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeUpdate(sql);
 
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("Feedback sent successfully!");
+            alert.show();
+        }
+        catch (SQLException throwables) { throwables.printStackTrace(); }
     }
 
     @FXML
-    private void backButtonAction()
+    public void backButtonAction()
     {
         try {
             changedPane = FXMLLoader.load(getClass().getResource("../scenes/HomePage.fxml"));
@@ -69,12 +88,25 @@ public class CtrlHomeFeedback implements Initializable
         catch (IOException e) { e.printStackTrace(); }
     }
 
+    private String findForWho()
+    {
+        String forWho = "";
+
+        if(trainer.isSelected())
+            forWho = "Trainer";
+
+        if(manager.isSelected())
+            forWho = "Manager";
+
+        return forWho;
+    }
+
     private void checkUser()
     {
         if(CtrlLogin.user.isManager() || CtrlLogin.user.isTrainer())
         {
             label1.setText("The feedback option is not for you!");
-            label2.setText("Please go back and mind your business!");
+            label2.setText("Please go back and mind your bussines!");
             textArea.setPromptText("I SAID THE FEEDBACK OPTION IS NOT FOR YOU!");
             textArea.setDisable(true);
             trainer.setDisable(true);

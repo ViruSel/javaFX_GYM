@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,6 +21,9 @@ public class CtrlProfileMap implements Initializable
     private AnchorPane changedPane;
     @FXML
     private JFXButton back;
+
+
+    //DB db = new DB();
 
     @Override
     public void initialize(URL location, ResourceBundle resources)

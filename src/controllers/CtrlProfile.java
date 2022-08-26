@@ -3,7 +3,7 @@ package controllers;
 import animatefx.animation.SlideInRight;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import database.MySQLdb;
+import database.DB;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
 import java.io.IOException;
 import java.net.URL;
@@ -47,14 +48,7 @@ public class CtrlProfile implements Initializable
     @FXML
     private Pane hidingPane;
 
-    private boolean nameFlag = false;
-    private boolean lastNameFlag = false;
-    private boolean ageFlag = false;
-    private boolean telFlag = false;
-    private boolean cityFlag = false;
-    private boolean emailFlag = false;
-
-    MySQLdb db = new MySQLdb();
+    DB db = new DB();
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -62,6 +56,7 @@ public class CtrlProfile implements Initializable
         updateCredentials();
         doneButton.setVisible(false);
         hidingPane.setVisible(true);
+        gender.setEditable(false);
         name.setText(CtrlLogin.user_data.getName());
         lastName.setText(CtrlLogin.user_data.getLastName());
         age.setText(getAge(CtrlLogin.user_data.getAge()));
@@ -76,6 +71,28 @@ public class CtrlProfile implements Initializable
         tel.setStyle("-fx-text-inner-color: white;");
         city.setStyle("-fx-text-inner-color: white;");
         email.setStyle("-fx-text-inner-color: white;");
+        defaultProfileSettings();
+    }
+
+    private void defaultProfileSettings()
+    {
+        hidingPane.setVisible(true);
+        editButton.setVisible(true);
+        doneButton.setVisible(false);
+        name.setEditable(false);
+        lastName.setEditable(false);
+        age.setEditable(false);
+        tel.setEditable(false);
+        city.setEditable(false);
+        email.setEditable(false);
+        name.setUnFocusColor(Color.web("#121212"));
+        lastName.setUnFocusColor(Color.web("#121212"));
+        age.setUnFocusColor(Color.web("#121212"));
+        gender.setUnFocusColor(Color.web("#121212"));
+        tel.setUnFocusColor(Color.web("#121212"));
+        city.setUnFocusColor(Color.web("#121212"));
+        email.setUnFocusColor(Color.web("#121212"));
+
     }
 
     @FXML
@@ -90,20 +107,19 @@ public class CtrlProfile implements Initializable
         tel.setEditable(true);
         city.setEditable(true);
         email.setEditable(true);
+        name.setUnFocusColor(Color.web("#4d4d4d"));
+        lastName.setUnFocusColor(Color.web("#4d4d4d"));
+        age.setUnFocusColor(Color.web("#4d4d4d"));
+        gender.setUnFocusColor(Color.web("#4d4d4d"));
+        tel.setUnFocusColor(Color.web("#4d4d4d"));
+        city.setUnFocusColor(Color.web("#4d4d4d"));
+        email.setUnFocusColor(Color.web("#4d4d4d"));
     }
 
     @FXML
     private void doneButtonAction()
     {
-        hidingPane.setVisible(true);
-        editButton.setVisible(true);
-        doneButton.setVisible(false);
-        name.setEditable(false);
-        lastName.setEditable(false);
-        age.setEditable(false);
-        tel.setEditable(false);
-        city.setEditable(false);
-        email.setEditable(false);
+        defaultProfileSettings();
         validateNewCredentials();
     }
 
@@ -137,13 +153,15 @@ public class CtrlProfile implements Initializable
             alert.setHeaderText(null);
             alert.setContentText("Please enter a valid name!");
             alert.show();
+            name.setText(CtrlLogin.user_data.getName());
         }
         else if (lastName.getText().equals("") || isNumeric(lastName.getText()))
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
-            alert.setContentText("Please enter a valid lastname!");
+            alert.setContentText("Please enter a valid last name!");
             alert.show();
+            lastName.setText(CtrlLogin.user_data.getLastName());
         }
         else if (city.getText().equals("") || isNumeric(city.getText()))
         {
@@ -151,6 +169,7 @@ public class CtrlProfile implements Initializable
             alert.setHeaderText(null);
             alert.setContentText("Please enter a valid city!");
             alert.show();
+            city.setText(CtrlLogin.user_data.getCity());
         }
         else if (!isNumeric(age.getText()) || age.getText().length() > 2)
         {
@@ -158,73 +177,72 @@ public class CtrlProfile implements Initializable
             alert.setHeaderText(null);
             alert.setContentText("Please enter a valid age!");
             alert.show();
+            age.setText(String.valueOf(CtrlLogin.user_data.getAge()));
         }
-        else if (Integer.parseInt(age.getText()) > 90) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        else if (Integer.parseInt(age.getText()) > 90)
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText(null);
             alert.setContentText("Why do you even bother going to GYM at that age lol!");
             alert.show();
         }
-        else if (!isNumeric(tel.getText()) || (tel.getText().length() < 9 && tel.getText().length() >10))
+        else if (!isNumeric(tel.getText()) || tel.getText().length() != 10)
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Please enter a valid phone number!");
             alert.show();
+            tel.setText(CtrlLogin.user_data.getTel());
         }
-        else if (email.getText().equals(""))
-        {
-            email.setText("No Email");
-        }
-        else if (!isEmail(email.getText()))
+        else if (!email.getText().equals("No Email") && !email.getText().equals("") && !isEmail(email.getText()))
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Please enter a valid email, or don't enter it at all!");
             alert.show();
+            setEmail();
         }
         else
         {
             insertNewCredentials();
             updateCredentials();
+            setEmail();
         }
     }
 
     private void insertNewCredentials()
     {
-        getFlags();
-
-        if(!nameFlag)
+        if(!name.getText().equals(CtrlLogin.user_data.getName()))
         {
             try {
                 Connection con = DriverManager.getConnection(db.getHOST(), db.getUSERNAME(), db.getPASSWORD());
-                String sql = "UPDATE `test`.`user_data` SET `name` =" + name.getText() +" WHERE (`username`='"+CtrlLogin.user_data.getUsername()+"');";
+                String sql = "UPDATE `user_data` SET `name` =" + "'"+name.getText()+"'" +" WHERE (`username`='"+CtrlLogin.user_data.getUsername()+"');";
                 PreparedStatement ps = con.prepareStatement(sql);
                 ps.executeUpdate(sql);
 
             } catch (SQLException e) { e.printStackTrace(); }
         }
-        if(!lastNameFlag)
+        if(!lastName.getText().equals(CtrlLogin.user_data.getLastName()))
         {
             try {
                 Connection con = DriverManager.getConnection(db.getHOST(), db.getUSERNAME(), db.getPASSWORD());
-                String sql = "UPDATE `test`.`user_data` SET `lastName` =" + lastName.getText() +" WHERE (`username`='"+CtrlLogin.user_data.getUsername()+"');";
+                String sql = "UPDATE `user_data` SET `lastName` =" + "'"+lastName.getText()+"'" +" WHERE (`username`='"+CtrlLogin.user_data.getUsername()+"');";
                 PreparedStatement ps = con.prepareStatement(sql);
                 ps.executeUpdate(sql);
 
             } catch (SQLException e) { e.printStackTrace(); }
         }
-        if(!ageFlag)
+        if(Integer.parseInt(age.getText()) != (CtrlLogin.user_data.getAge()))
         {
             try {
                 Connection con = DriverManager.getConnection(db.getHOST(), db.getUSERNAME(), db.getPASSWORD());
-                String sql = "UPDATE `test`.`user_data` SET `age` =" + Integer.parseInt(age.getText()) +" WHERE (`username`='"+CtrlLogin.user_data.getUsername()+"');";
+                String sql = "UPDATE `user_data` SET `age` =" +Integer.parseInt(age.getText()) +" WHERE (`username`='"+CtrlLogin.user_data.getUsername()+"');";
                 PreparedStatement ps = con.prepareStatement(sql);
                 ps.executeUpdate(sql);
 
             } catch (SQLException e) { e.printStackTrace(); }
         }
-        if(!telFlag)
+        if(!tel.getText().equals(CtrlLogin.user_data.getTel()))
         {
             try {
                 Connection con = DriverManager.getConnection(db.getHOST(), db.getUSERNAME(), db.getPASSWORD());
@@ -234,21 +252,21 @@ public class CtrlProfile implements Initializable
 
             } catch (SQLException e) { e.printStackTrace(); }
         }
-        if(!cityFlag)
+        if(!city.getText().equals(CtrlLogin.user_data.getCity()))
         {
             try {
                 Connection con = DriverManager.getConnection(db.getHOST(), db.getUSERNAME(), db.getPASSWORD());
-                String sql = "UPDATE `test`.`user_data` SET `city` =" + city.getText() +" WHERE (`username`='"+CtrlLogin.user_data.getUsername()+"');";
+                String sql = "UPDATE `user_data` SET `city` =" + "'"+city.getText()+"'" +" WHERE (`username`='"+CtrlLogin.user_data.getUsername()+"');";
                 PreparedStatement ps = con.prepareStatement(sql);
                 ps.executeUpdate(sql);
 
             } catch (SQLException e) { e.printStackTrace(); }
         }
-        if(!emailFlag)
+        if(!email.getText().equals(CtrlLogin.user_data.getEmail()) && !email.getText().equals("No Email"))
         {
             try {
                 Connection con = DriverManager.getConnection(db.getHOST(), db.getUSERNAME(), db.getPASSWORD());
-                String sql = "UPDATE `test`.`user_data` SET `email` =" + email.getText() +" WHERE (`username`="+ CtrlLogin.user_data.getUsername()+");";
+                String sql = "UPDATE `user_data` SET email =" + "'"+email.getText()+"'" +" WHERE (`username`='"+ CtrlLogin.user_data.getUsername()+"');";
                 PreparedStatement ps = con.prepareStatement(sql);
                 ps.executeUpdate(sql);
 
@@ -272,22 +290,6 @@ public class CtrlProfile implements Initializable
 
         }
         catch (SQLException throwables) { throwables.printStackTrace(); }
-    }
-
-    private void getFlags()
-    {
-        if(name.getText().equals(CtrlLogin.user_data.getName()))
-            nameFlag = true;
-        if(lastName.getText().equals(CtrlLogin.user_data.getLastName()))
-            lastNameFlag = true;
-        if(Integer.parseInt(age.getText()) == (CtrlLogin.user_data.getAge()))
-            ageFlag = true;
-        if(tel.getText().equals(CtrlLogin.user_data.getTel()))
-            telFlag = true;
-        if(city.getText().equals(CtrlLogin.user_data.getCity()))
-            cityFlag = true;
-        if(email.getText().equals(CtrlLogin.user_data.getEmail()))
-            emailFlag = true;
     }
 
     private void setNode(Node node)

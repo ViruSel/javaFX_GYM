@@ -1,6 +1,13 @@
 package controllers;
 
 import animatefx.animation.SlideInRight;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
+import database.DB;
+import database.User;
+import database.UserData;
 import gym.Main;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
@@ -11,16 +18,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
-import java.io.IOException;
-import java.net.URL;
-import java.sql.*;
-import java.util.ResourceBundle;
-import com.jfoenix.controls.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import database.*;
+
+import java.io.IOException;
+import java.net.URL;
+import java.sql.*;
+import java.util.ResourceBundle;
 
 public class CtrlLogin implements Initializable
 {
@@ -40,11 +46,14 @@ public class CtrlLogin implements Initializable
     private ImageView loading;
 
     private static Main main;
+    public static Stage menuStage = new Stage();
 
     // SQL //
-    private MySQLdb db = new MySQLdb();
-    public static MySQLuser user = new MySQLuser();
-    public static MySQLuser_data user_data = null;
+    private final DB db = new DB();
+    public static User user = new User();
+    public static UserData user_data = null;
+    //UserService userService = new UserService();
+    //List<UserEntity> allUsers = userService.getAllUsers();
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -52,6 +61,9 @@ public class CtrlLogin implements Initializable
         loading.setVisible(false);
         username.setStyle("-fx-text-inner-color: white;");
         password.setStyle("-fx-text-inner-color: white;");
+
+        //UserService userService = new UserService();
+        //List<UserEntity> allUsers = userService.getAllUsers();
     }
 
     @FXML
@@ -73,7 +85,7 @@ public class CtrlLogin implements Initializable
     private void setNodeSignUp(Node node)
     {
         holderPane.getChildren().clear();
-        holderPane.getChildren().add((Node) node);
+        holderPane.getChildren().add(node);
 
         SlideInRight slideInRight = new SlideInRight(changedPane);
         slideInRight.setNode(node);
@@ -107,26 +119,29 @@ public class CtrlLogin implements Initializable
                 user = db.getUserByUsername(username.getText());
                 user_data = db.getUserDataByUsername(user.getUsername());
 
-                System.out.println(user.toString());
-                System.out.println(user_data.toString());
+                // TEST //
+                //System.out.println(user.toString());
+                //System.out.println(user_data.toString());
+                //////////
 
                 Stage loginStage = (Stage) login.getScene().getWindow();
                 loginStage.close();
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../scenes/Menu.fxml"));
-                    Parent root = (Parent) fxmlLoader.load();
-                    Stage menuStage = new Stage();
-                    this.main.stage = menuStage;
-                    menuStage.initStyle(StageStyle.UNDECORATED);
-                    menuStage.setScene(new Scene(root));
-                    menuStage.show();
+                    Parent root = fxmlLoader.load();
+                    Stage mainMenuStage = new Stage();
+                    this.main.stage = mainMenuStage;
+                    menuStage = mainMenuStage;
+                    mainMenuStage.initStyle(StageStyle.UNDECORATED);
+                    mainMenuStage.setScene(new Scene(root));
+                    mainMenuStage.show();
 
                 } catch (IOException e) { e.printStackTrace(); }
             }
             else
             {
-                user = new MySQLuser(0, null,null,null,null);
-                user_data = new MySQLuser_data(null,null,0,null,null,null,null);
+                user = new User(null,null,null,null);
+                user_data = new UserData(null,null,0,null,null,null,null,null,null,null,null,null,null,null,null,null);
 
                 loading.setVisible(false);
                 Alert alert = new Alert(Alert.AlertType.ERROR);

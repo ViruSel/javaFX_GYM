@@ -1,28 +1,55 @@
 package tests;
 
-import database.MySQLuser;
-import org.junit.jupiter.api.BeforeEach;
+import database.User;
+import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-//@WebMvcTest(controllers = UserController.class)
-//@ActiveProfiles("test")
-//@Autowired
-//private MockMvc mockMvc;
-
-//@MockBean
-//private UserService userService;
-
-public class UserTest
+class UserTest
 {
-    private List<MySQLuser> userList;
+    /**
+     * test user username
+     */
+    @Test
+    public void testUsername()
+    {
+        User user = new User("Chuck", "1234");
+        assertEquals("Chuck", user.getUsername());
+    }
 
-    @BeforeEach
-    void setUp() {
-        this.userList = new ArrayList<>();
-        this.userList.add(new MySQLuser(1,"Ricky", "1234","Customer","1 month"));
-        this.userList.add(new MySQLuser(2,"Dicky", "1234","Trainer","Unlimited"));
-        this.userList.add(new MySQLuser(1,"Micky", "1234","Manager","Unlimited"));
+    /**
+     * Test user password
+     */
+    @Test
+    public void testPassword()
+    {
+        User user = new User("Chuck", "1234");
+        assertEquals("1234", user.getPassword());
+    }
+
+    /**
+     * Test complete user creation
+     */
+    @Test
+    public void testCustomer()
+    {
+        User user = new User("ChuckN", "1234", "Customer", "Free");
+        assertEquals("ChuckN", user.getUsername());
+        assertEquals("1234", user.getPassword());
+        assertEquals("Customer", user.getRank());
+        assertEquals("Free", user.getSubscription());
+    }
+
+    /**
+     * Test creating Trainer
+     */
+    @Test
+    public void testTrainer()
+    {
+        User user = new User("ChuckN", "1234", "Customer", "Free");
+        user.setRank("Trainer");
+        user.setSubscription("Unlimited");
+        assertEquals("Trainer", user.getRank());
+        assertEquals("Unlimited", user.getSubscription());
     }
 }
