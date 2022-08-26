@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="holderPane" prefHeight="0.0" prefWidth="0.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CtrlProfilePage">
+   <children>
+      <Pane prefHeight="412.0" prefWidth="941.0" style="-fx-background-color: #121212;" />
+      <JFXButton layoutY="37.0" onAction="#subscriptionButtonAction" prefHeight="175.0" prefWidth="110.0" style="-fx-background-color: #2d2d2d;" text=" " textFill="WHITE">
+         <graphic>
+            <MaterialIconView fill="#960001" glyphName="EURO_SYMBOL" size="150" wrappingWidth="144.99999526329339" />
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutY="237.0" onAction="#hallsButtonAction" prefHeight="175.0" prefWidth="174.0" style="-fx-background-color: #2d2d2d;" text=" " textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="126.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true" smooth="false" x="1.0" y="1.0">
+               <image>
+                  <Image url="@../assets/Halls.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="500.0" layoutY="36.0" onAction="#trainerButtonAction" prefHeight="175.0" prefWidth="174.0" style="-fx-background-color: #2d2d2d;" text=" " textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="144.0" fitWidth="194.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" x="1.0" y="1.0">
+               <image>
+                  <Image url="@../assets/trainer%20material.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="500.0" layoutY="236.0" onAction="#mapButtonAction" prefHeight="175.0" prefWidth="174.0" style="-fx-background-color: #2d2d2d;" text=" " textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="166.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/GPS.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="200.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Subscriptions" underline="true" wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="200.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Renew or buy a new subscription at the best GYM out here!" wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="200.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Halls I have chosen" underline="true" wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="701.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Trainers" underline="true" wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="701.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GYMs Map" underline="true" wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="701.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Just like google maps, but it's our GYM's on a map!" wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="701.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="See a list of your trainer/s, rate him/them!" wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="200.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="See the halls you have choosen to go to!" wrappingWidth="239.21386992931366">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

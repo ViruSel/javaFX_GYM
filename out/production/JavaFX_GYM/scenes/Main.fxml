@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="504.0" prefWidth="896.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CtrlMain">
+   <children>
+      <AnchorPane fx:id="holderPane" layoutY="44.0" prefHeight="461.0" prefWidth="896.0">
+         <children>
+            <Label layoutX="228.0" layoutY="51.0" text="Welcome tough user!" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="50.0" />
+               </font>
+            </Label>
+            <Label layoutX="258.0" layoutY="183.0" text="Please login or sign up to acces the best GYM's near you!" textFill="WHITE" />
+            <JFXButton fx:id="login" defaultButton="true" layoutX="258.0" layoutY="271.0" onAction="#loginAction" prefHeight="82.0" prefWidth="179.0" ripplerFill="WHITE" style="-fx-background-color: #960001;" text="Login" textAlignment="CENTER" textFill="WHITE" />
+            <JFXButton fx:id="signUp" layoutX="457.0" layoutY="271.0" onAction="#signUpAction" prefHeight="82.0" prefWidth="179.0" ripplerFill="WHITE" style="-fx-background-color: #960001;" text="Sign Up" textAlignment="CENTER" textFill="WHITE" />
+            <Label layoutX="6.0" layoutY="448.0" text="© 2020 ViruSed_Inc." textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="6.0" layoutY="432.0" text="All rights reserved." textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="847.0" layoutY="448.0" text="Alpha v0.1" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <HBox fx:id="titleBar" alignment="TOP_RIGHT" layoutX="3.0" prefHeight="44.0" prefWidth="896.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton fx:id="minimize" onAction="#minimizeAction" prefHeight="44.0" prefWidth="62.0" ripplerFill="WHITE" text=" " textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <MaterialDesignIconView fill="#d6d6d6" glyphName="WINDOW_MINIMIZE" size="25" wrappingWidth="15.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton onAction="#xButtonAction" prefHeight="44.0" prefWidth="62.0" ripplerFill="WHITE" text=" " textAlignment="CENTER" textFill="WHITE" fx:id="xButton">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="WINDOW_CLOSE" size="25" wrappingWidth="15.0" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

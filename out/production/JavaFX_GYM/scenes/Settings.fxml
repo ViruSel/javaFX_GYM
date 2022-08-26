@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="675.0" prefWidth="1036.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CtrlSettings">
+   <children>
+      <Label layoutX="426.0" layoutY="14.0" text="Settings" textFill="WHITE">
+         <font>
+            <Font name="Impact" size="60.0" />
+         </font>
+      </Label>
+      <Separator layoutX="213.0" layoutY="134.0" prefHeight="0.0" prefWidth="644.0" />
+      <AnchorPane layoutX="46.0" layoutY="136.0" prefHeight="507.0" prefWidth="965.0">
+         <children>
+            <JFXToggleButton layoutX="277.0" layoutY="194.0" size="20.0" text="Disable notifications" textFill="WHITE" toggleColor="#960001" toggleLineColor="#ff8080">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </JFXToggleButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

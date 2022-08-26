@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane fx:id="holderPane" prefHeight="507.0" prefWidth="965.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CtrlHomeFeedback">
+   <children>
+      <Pane prefHeight="549.0" prefWidth="1036.0" style="-fx-background-color: #121212;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton fx:id="back" layoutX="14.0" layoutY="14.0" onAction="#backButtonAction" prefHeight="46.0" prefWidth="30.0" text=" " textFill="WHITE">
+               <graphic>
+                  <MaterialIconView fill="WHITE" glyphName="ARROW_BACK" size="25" wrappingWidth="15.0" />
+               </graphic>
+            </JFXButton>
+            <JFXTextArea fx:id="textArea" focusColor="#960001" layoutX="107.0" layoutY="167.0" prefHeight="217.0" prefWidth="756.0" promptText="Feedback goes here...">
+               <font>
+                  <Font size="18.0" />
+               </font></JFXTextArea>
+            <Label fx:id="label1" layoutX="109.0" layoutY="60.0" text="Here you can provide us feedback" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="label2" layoutX="109.0" layoutY="90.0" text="Just choose your feedback reciever: " textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <JFXRadioButton fx:id="trainer" layoutX="543.0" layoutY="75.0" text="Trainer" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="manager" layoutX="747.0" layoutY="75.0" text="Manager" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXRadioButton>
+            <JFXButton fx:id="send" defaultButton="true" layoutX="437.0" layoutY="432.0" onAction="#sendButtonAction" prefHeight="46.0" prefWidth="92.0" style="-fx-background-color: #960001;" text="Send" textAlignment="CENTER" textFill="WHITE" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

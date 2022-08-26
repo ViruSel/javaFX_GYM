@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="holderPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CtrlTrainerToolsExercise">
+   <children>
+      <Pane prefHeight="549.0" prefWidth="1036.0" style="-fx-background-color: #121212;">
+         <children>
+            <JFXButton fx:id="back" layoutX="14.0" layoutY="14.0" onAction="#backButtonAction" prefHeight="46.0" prefWidth="30.0" text=" " textFill="WHITE">
+               <graphic>
+                  <MaterialIconView fill="WHITE" glyphName="ARROW_BACK" size="25" wrappingWidth="15.0" />
+               </graphic>
+            </JFXButton>
+            <Label fx:id="adminTextTop" alignment="CENTER" contentDisplay="CENTER" layoutX="368.0" layoutY="90.0" text="Why would you buy this?" textAlignment="CENTER" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="adminTextDown" alignment="CENTER" contentDisplay="CENTER" layoutX="311.0" layoutY="429.0" text="Feel free to come whenever you want!" textAlignment="CENTER" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="257.0" layoutY="73.0" text="Here you are supposed to assign an exercise plan" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <JFXListView fx:id="customerList" layoutX="137.0" layoutY="211.0" prefHeight="272.0" prefWidth="736.0" showTooltip="true" verticalGap="1.0" />
+      <Label layoutX="449.0" layoutY="132.0" text="Customers" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

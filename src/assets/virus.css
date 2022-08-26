@@ -1,0 +1,10 @@
+.jfx-radio-button{-jfx-selected-color: #960001;}
+.jfx-button:hover{-fx-background-color: #960001;}
+.list-cell:hover{-fx-background-color: #2d2d2d;}
+.list-cell{-fx-background-color: #1a1a1a;}
+.hyperlink
+{
+    -fx-text-fill: white;
+    -fx-border-style: none;
+}
+.hyperlink:hover{-fx-text-fill: #960001;}

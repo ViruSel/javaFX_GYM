@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="holderPane" prefHeight="507.0" prefWidth="965.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CtrlHomeHalls">
+   <children>
+      <Pane prefHeight="549.0" prefWidth="1036.0" style="-fx-background-color: #121212;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton fx:id="back" layoutX="14.0" layoutY="14.0" onAction="#backButtonAction" prefHeight="46.0" prefWidth="30.0" text=" " textFill="WHITE">
+               <graphic>
+                  <MaterialIconView fill="WHITE" glyphName="ARROW_BACK" size="25" wrappingWidth="15.0" />
+               </graphic>
+            </JFXButton>
+            <JFXRadioButton fx:id="mainHall" layoutX="221.0" layoutY="141.0" onAction="#subHall" prefHeight="45.0" prefWidth="205.0" scaleX="1.5" scaleY="1.5" text="Main hall" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="secondHall" layoutX="221.0" layoutY="232.0" onAction="#subHall" prefHeight="45.0" prefWidth="203.0" scaleX="1.5" scaleY="1.5" text="Second hall" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="yogaHall" layoutX="220.0" layoutY="324.0" onAction="#subHall" prefHeight="45.0" prefWidth="206.0" scaleX="1.5" scaleY="1.5" text="Yoga hall" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="aerobicsHall" layoutX="641.0" layoutY="141.0" onAction="#subHall" prefHeight="45.0" prefWidth="207.0" scaleX="1.5" scaleY="1.5" text="Aerobics hall" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="spaHall" layoutX="641.0" layoutY="232.0" onAction="#subHall" prefHeight="45.0" prefWidth="207.0" scaleX="1.5" scaleY="1.5" text="SPA" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="saunaHall" layoutX="641.0" layoutY="321.0" onAction="#subHall" prefHeight="45.0" prefWidth="207.0" scaleX="1.5" scaleY="1.5" text="Sauna" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXRadioButton>
+            <Separator layoutX="477.0" layoutY="128.0" orientation="VERTICAL" prefHeight="254.0" prefWidth="6.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

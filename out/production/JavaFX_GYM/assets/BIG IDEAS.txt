@@ -1,0 +1,3 @@
+// send feedback fix
+// links in trainer profile
+// profile trainer fix rating

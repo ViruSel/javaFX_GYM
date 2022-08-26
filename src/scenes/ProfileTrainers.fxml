@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="holderPane" prefHeight="412.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CtrlProfileTrainers">
+   <children>
+      <Pane prefHeight="412.0" prefWidth="941.0" style="-fx-background-color: #121212;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton fx:id="back" layoutX="14.0" layoutY="14.0" onAction="#backButtonAction" prefHeight="46.0" prefWidth="30.0" text=" " textFill="WHITE">
+               <graphic>
+                  <MaterialIconView fill="WHITE" glyphName="ARROW_BACK" size="25" wrappingWidth="15.0" />
+               </graphic>
+            </JFXButton>
+            <Pane fx:id="adminPane" layoutX="62.0" layoutY="66.0" prefHeight="327.0" prefWidth="822.0" style="-fx-background-color: #121212;" visible="false">
+               <children>
+                  <Label fx:id="adminText" alignment="CENTER" contentDisplay="CENTER" layoutY="83.0" prefHeight="36.0" prefWidth="802.0" text="You are a trainer, train yourself!" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <JFXListView fx:id="gymList" layoutX="55.0" layoutY="173.0" prefHeight="46.0" prefWidth="274.0" showTooltip="true" verticalGap="1.0" />
+            <JFXListView fx:id="yogaList" layoutX="336.0" layoutY="173.0" prefHeight="46.0" prefWidth="274.0" showTooltip="true" verticalGap="1.0" />
+            <JFXListView fx:id="aerobicsList" layoutX="618.0" layoutY="173.0" prefHeight="46.0" prefWidth="274.0" showTooltip="true" verticalGap="1.0" />
+            <Label layoutX="129.0" layoutY="126.0" text="GYM trainer" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="408.0" layoutY="126.0" text="Yoga trainer" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="671.0" layoutY="126.0" text="Aerobics trainer" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="342.0" layoutY="271.0" text="If you can't find your trainer, he's hiding in the locker room!" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

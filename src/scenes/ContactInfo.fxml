@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="675.0" prefWidth="1036.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CtrlContactInfo">
+   <children>
+      <Label layoutX="385.0" layoutY="14.0" text="Contact Info" textFill="WHITE">
+         <font>
+            <Font name="Impact" size="60.0" />
+         </font>
+      </Label>
+      <Separator layoutX="213.0" layoutY="134.0" prefHeight="0.0" prefWidth="644.0" />
+      <AnchorPane layoutX="46.0" layoutY="136.0" prefHeight="507.0" prefWidth="965.0">
+         <children>
+            <Label layoutX="115.0" layoutY="202.0" text="Tel: 07xd-696-420" textFill="WHITE">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Label layoutX="98.0" layoutY="249.0" text="Tel2: 02xd-696-420" textFill="WHITE">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Separator layoutX="486.0" layoutY="51.0" orientation="VERTICAL" prefHeight="442.0" prefWidth="0.0" />
+            <Label layoutX="112.0" layoutY="296.0" text="Fax: 03xd-696-420" textFill="WHITE">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Label layoutX="189.0" layoutY="82.0" text="Call us" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="32.0" />
+               </font>
+            </Label>
+            <Label layoutX="673.0" layoutY="82.0" text="Follow us" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="32.0" />
+               </font>
+            </Label>
+            <MaterialDesignIconView fill="#5769b2" glyphName="FACEBOOK_BOX" layoutX="536.0" layoutY="193.0" size="25" />
+            <MaterialDesignIconView glyphName="INSTAGRAM" layoutX="536.0" layoutY="237.0" size="25">
+               <fill>
+                  <LinearGradient endX="0.7718446601941747" endY="1.0" startX="0.8932038834951457">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#1317cf" offset="0.12176754759874965" />
+                        <Stop color="#cf13c5" offset="0.3424978687127025" />
+                        <Stop color="#cfa613" offset="0.9586530264279626" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill></MaterialDesignIconView>
+            <MaterialDesignIconView fill="#960000" glyphName="YOUTUBE_PLAY" layoutX="536.0" layoutY="281.0" size="25" />
+            <MaterialDesignIconView fill="#5c0094" glyphName="TWITCH" layoutX="536.0" layoutY="328.0" size="25" />
+            <MaterialDesignIconView fill="#00ff0d" glyphName="SPOTIFY" layoutX="536.0" layoutY="369.0" size="25" />
+            <Hyperlink fx:id="fb" layoutX="592.0" layoutY="170.0" onAction="#fbButtonAction" text="www.facebook.com/theverybestgymever/" textFill="WHITE" underline="true" />
+            <Hyperlink fx:id="insta" layoutX="589.0" layoutY="214.0" onAction="#instaButtonAction" text="www.Instagram.com/theverybestgymever/" textFill="WHITE" underline="true" />
+            <Hyperlink fx:id="yt" layoutX="600.0" layoutY="258.0" onAction="#ytButtonAction" text="www.youtube.com/theverybestgymever/" textFill="WHITE" underline="true" />
+            <Hyperlink fx:id="twitch" layoutX="606.0" layoutY="302.0" onAction="#twitchButtonAction" text="www.twitch.com/theverybestgymever/" textFill="WHITE" underline="true" />
+            <Hyperlink fx:id="spotify" layoutX="607.0" layoutY="346.0" onAction="#spotifyButtonAction" text="www.spotify.com/theverybestgymever/" textFill="WHITE" underline="true" />
+            <Label layoutX="164.0" layoutY="448.0" text="We'll try to answer within 24 hrs" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="651.0" layoutY="448.0" text="We'll not answer here, but you can try" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <MaterialDesignIconView fill="#4eba00" glyphName="PHONE" layoutX="413.0" layoutY="234.0" size="25" />
+            <MaterialDesignIconView fill="#4eba00" glyphName="PHONE" layoutX="413.0" layoutY="281.0" size="25" />
+            <MaterialDesignIconView fill="WHITE" glyphName="FAX" layoutX="413.0" layoutY="328.0" size="25" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,34 @@
+.list-cell:filled:selected:focused, .list-cell:filled:selected
+{
+    -fx-text-fill: white;
+}
+
+.list-view {
+    -fx-border-color: #000000;
+}
+
+.list-cell:odd {-fx-background-color: #2d2d2d;}
+
+.list-cell:filled:hover
+{
+    -fx-background-color: #4d4d4d;
+    -fx-text-fill: white;
+}
+
+.list-cell:hover
+{
+    -fx-background-color: #4d4d4d;
+    -fx-text-fill: white;
+}
+
+.list-cell {
+    -fx-border-color: #262626 ;
+    -fx-background-color: #262626;
+    -fx-text-fill: white;
+}
+
+.list-cell:default{
+    -fx-border-color: #262626 ;
+    -fx-background-color: #262626;
+    -fx-text-fill: white;
+}

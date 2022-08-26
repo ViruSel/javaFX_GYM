@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="holderPane" prefHeight="507.0" prefWidth="965.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CtrlHomeTrainers">
+   <children>
+      <Pane prefHeight="549.0" prefWidth="1036.0" style="-fx-background-color: #121212;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton fx:id="back" layoutX="14.0" layoutY="14.0" onAction="#backButtonAction" prefHeight="46.0" prefWidth="30.0" text=" " textFill="WHITE">
+               <graphic>
+                  <MaterialIconView fill="WHITE" glyphName="ARROW_BACK" size="25" wrappingWidth="15.0" />
+               </graphic>
+            </JFXButton>
+            <Label layoutX="141.0" layoutY="76.0" text="GYM trainers" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <JFXListView fx:id="gymList" layoutX="73.0" layoutY="124.0" prefHeight="272.0" prefWidth="274.0" showTooltip="true" verticalGap="1.0" />
+            <JFXListView fx:id="yogaList" layoutX="354.0" layoutY="124.0" prefHeight="272.0" prefWidth="274.0" showTooltip="true" verticalGap="1.0" />
+            <JFXListView fx:id="aerobicsList" layoutX="636.0" layoutY="124.0" prefHeight="272.0" prefWidth="274.0" showTooltip="true" verticalGap="1.0" />
+            <Label layoutX="422.0" layoutY="76.0" text="Yoga trainers" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="684.0" layoutY="76.0" text="Aerobics trainers" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="288.0" layoutY="422.0" text="Click on a trainer to see his/her profile!" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="adminPane" layoutX="56.0" layoutY="54.0" prefHeight="426.0" prefWidth="869.0" style="-fx-background-color: #121212;" visible="false">
+         <children>
+            <Label fx:id="adminText" alignment="CENTER" contentDisplay="CENTER" layoutY="143.0" prefHeight="70.0" prefWidth="869.0" text="Admin text" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

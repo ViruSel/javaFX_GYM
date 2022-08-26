@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+
+<AnchorPane fx:id="holderPane" prefHeight="412.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CtrlProfileTrainerProfile">
+   <children>
+      <Pane prefHeight="412.0" prefWidth="941.0" style="-fx-background-color: #121212;">
+         <children>
+            <JFXButton fx:id="back" layoutX="14.0" layoutY="14.0" onAction="#backButtonAction" prefHeight="46.0" prefWidth="30.0" text=" " textFill="WHITE">
+               <graphic>
+                  <MaterialIconView fill="WHITE" glyphName="ARROW_BACK" size="25" wrappingWidth="15.0" />
+               </graphic>
+            </JFXButton>
+            <ImageView fitHeight="195.0" fitWidth="176.0" layoutX="130.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/trainer%20material.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="name" layoutX="314.0" layoutY="30.0" prefHeight="9.0" prefWidth="204.0" text="Name" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lastName" layoutX="314.0" layoutY="60.0" prefHeight="26.0" prefWidth="204.0" text="Last Name" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="age" layoutX="314.0" layoutY="91.0" prefHeight="26.0" prefWidth="204.0" text="Age" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="gender" layoutX="314.0" layoutY="121.0" prefHeight="26.0" prefWidth="204.0" text="Gender" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="tel" layoutX="314.0" layoutY="151.0" prefHeight="26.0" prefWidth="204.0" text="Tel" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="ratingLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="635.0" layoutY="57.0" prefHeight="30.0" prefWidth="176.0" text="Rating:" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Rating fx:id="rating" layoutX="635.0" layoutY="102.0" />
+            <JFXTextArea fx:id="textArea" focusColor="#960001" layoutX="108.0" layoutY="234.0" prefHeight="98.0" prefWidth="746.0" promptText="Here goes the review" />
+            <JFXButton layoutX="429.0" layoutY="352.0" style="-fx-background-color: #960001;" text="Send Review" textFill="WHITE" />
+            <Separator layoutX="569.0" layoutY="27.0" orientation="VERTICAL" prefHeight="171.0" prefWidth="0.0" />
+            <JFXButton fx:id="reviewButton" layoutX="583.0" layoutY="25.0" onAction="#reviewButtonAction" prefHeight="46.0" prefWidth="44.0" text=" " textFill="WHITE">
+               <graphic>
+                  <MaterialIconView fill="WHITE" glyphName="RATE_REVIEW" size="25" wrappingWidth="16.0" />
+               </graphic>
+            </JFXButton>
+            <Label fx:id="email" layoutX="314.0" layoutY="180.0" prefHeight="26.0" prefWidth="204.0" text="Email" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="doneButton" layoutX="584.0" layoutY="154.0" onAction="#doneButtonAction" prefHeight="46.0" prefWidth="43.0" text=" " textFill="WHITE">
+               <graphic>
+                  <MaterialIconView fill="WHITE" glyphName="DONE" size="25" textAlignment="CENTER" wrappingWidth="14.0" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

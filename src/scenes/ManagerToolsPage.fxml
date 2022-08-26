@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CtrlManagerToolsPage">
+   <children>
+      <AnchorPane fx:id="holderPane" prefHeight="507.0" prefWidth="965.0" style="-fx-background-color: #121212;">
+         <children>
+            <JFXButton layoutY="66.0" onAction="#hallsButtonAction" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2d2d2d;" text=" " textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="136.0" fitWidth="126.0" pickOnBounds="true" preserveRatio="true" smooth="false" x="1.0" y="1.0">
+                     <image>
+                        <Image url="@../assets/Halls.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton layoutY="307.0" onAction="#managerFeedbackButtonAction" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2d2d2d;" text=" " textFill="WHITE">
+               <graphic>
+                  <MaterialIconView fill="#960001" glyphName="FEEDBACK" size="150" wrappingWidth="136.99999375641346" />
+               </graphic>
+            </JFXButton>
+            <JFXButton layoutX="512.0" layoutY="66.0" onAction="#hireAndFireButtonAction" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2d2d2d;" text=" " textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="144.0" fitWidth="158.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" x="1.0" y="1.0">
+                     <image>
+                        <Image url="@../assets/trainer%20material.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton layoutX="512.0" layoutY="307.0" onAction="#trainerFeedbackButtonAction" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2d2d2d;" text=" " textFill="WHITE">
+               <graphic>
+                  <MaterialIconView fill="#960001" glyphName="FEEDBACK" size="150" wrappingWidth="136.99999375641346" />
+               </graphic>
+            </JFXButton>
+            <Text fill="WHITE" fontSmoothingType="LCD" layoutX="213.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Halls &amp; trainers details" underline="true" wrappingWidth="239.21386992931366">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="214.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verify those halls &amp; trainers, might want to fire some of them trainers!" wrappingWidth="239.21386992931366">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="213.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't forget to check for stolen equipment!" wrappingWidth="239.21386992931366">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" fontSmoothingType="LCD" layoutX="213.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager Feedback" underline="true" wrappingWidth="239.21386992931366">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" fontSmoothingType="LCD" layoutX="724.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hire or Fire trainers" underline="true" wrappingWidth="239.21386992931366">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" fontSmoothingType="LCD" layoutX="724.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trainer Feedback" underline="true" wrappingWidth="239.21386992931366">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="725.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appreciate, or fire your Trainers!" wrappingWidth="239.21386992931366">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="724.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't forget to put on some new taxes!" wrappingWidth="239.21386992931366">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="725.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Not enough trainers? hire one. Too many trainers? fire one!" wrappingWidth="239.21386992931366">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="724.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't forget, less trainers, more money!" wrappingWidth="239.21386992931366">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="214.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enjoy yourself, or demote yourself!" wrappingWidth="239.21386992931366">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#d7d5d5" fontSmoothingType="LCD" layoutX="213.0" layoutY="486.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I wounder if a manager can demote himself" wrappingWidth="239.21386992931366">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
