@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CtrlHome implements Initializable
+public class CtrlHomePage implements Initializable
 {
     @FXML
     private AnchorPane holderPane;
@@ -21,7 +21,10 @@ public class CtrlHome implements Initializable
     private AnchorPane changedPane;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) { }
+    public void initialize(URL location, ResourceBundle resources)
+    {
+
+    }
 
     @FXML
     private void subscriptionButtonAction() { setPageSubscriptions();}
@@ -38,7 +41,7 @@ public class CtrlHome implements Initializable
     private void setNode(Node node)
     {
         holderPane.getChildren().clear();
-        holderPane.getChildren().add((Node) node);
+        holderPane.getChildren().add(node);
 
         SlideInRight slideInRight = new SlideInRight(changedPane);
         slideInRight.setNode(node);
@@ -50,7 +53,7 @@ public class CtrlHome implements Initializable
     private void setPageSubscriptions()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("../scenes/HomeSubscriptions.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/HomeSubscriptions.fxml"));
             setNode(changedPane);
 
         }
@@ -60,7 +63,7 @@ public class CtrlHome implements Initializable
     private void setPageTrainers()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("../scenes/HomeTrainers.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/HomeTrainers.fxml"));
             setNode(changedPane);
 
         }
@@ -70,7 +73,7 @@ public class CtrlHome implements Initializable
     private void setPageHalls()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("../scenes/HomeHalls.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/HomeHalls.fxml"));
             setNode(changedPane);
 
         }
@@ -80,12 +83,11 @@ public class CtrlHome implements Initializable
     private void setPageFeedback()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("../scenes/HomeFeedback.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/HomeFeedback.fxml"));
             setNode(changedPane);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 }

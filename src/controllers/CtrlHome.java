@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CtrlProfilePage implements Initializable {
-
+public class CtrlHome implements Initializable
+{
     @FXML
     private AnchorPane holderPane;
     @FXML
@@ -24,7 +24,7 @@ public class CtrlProfilePage implements Initializable {
     public void initialize(URL location, ResourceBundle resources) { }
 
     @FXML
-    private void subscriptionButtonAction() { setPageSubscriptions(); }
+    private void subscriptionButtonAction() { setPageSubscriptions();}
 
     @FXML
     private void trainerButtonAction() { setPageTrainers(); }
@@ -33,7 +33,7 @@ public class CtrlProfilePage implements Initializable {
     private void hallsButtonAction() { setPageHalls(); }
 
     @FXML
-    private void mapButtonAction() { setPageMap(); }
+    private void feedbackButtonAction() { setPageFeedback(); }
 
     private void setNode(Node node)
     {
@@ -50,36 +50,42 @@ public class CtrlProfilePage implements Initializable {
     private void setPageSubscriptions()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("../scenes/ProfileSubscriptions.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/HomeSubscriptions.fxml"));
             setNode(changedPane);
 
-        } catch (IOException e) { e.printStackTrace(); }
+        }
+        catch (IOException e) { e.printStackTrace(); }
     }
 
     private void setPageTrainers()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("../scenes/ProfileTrainers.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/HomeTrainers.fxml"));
             setNode(changedPane);
 
-        } catch (IOException e) { e.printStackTrace(); }
+        }
+        catch (IOException e) { e.printStackTrace(); }
     }
 
     private void setPageHalls()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("../scenes/ProfileHalls.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/HomeHalls.fxml"));
             setNode(changedPane);
 
-        } catch (IOException e) { e.printStackTrace(); }
+        }
+        catch (IOException e) { e.printStackTrace(); }
     }
 
-    private void setPageMap()
+    private void setPageFeedback()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("../scenes/ProfileMap.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/HomeFeedback.fxml"));
             setNode(changedPane);
 
-        } catch (IOException e) { e.printStackTrace(); }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 }

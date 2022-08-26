@@ -43,7 +43,7 @@ public class CtrlHomeSubscriptions implements Initializable
     public void initialize(URL location, ResourceBundle resources)
     {
         back.getStylesheets().add("assets/virus_titlebar.css");
-        day1Sub.getStylesheets().add("assets/virus.css");
+        day1Sub.getStylesheets().add("src/assets/virus.css");
         month1Sub.getStylesheets().add("assets/virus.css");
         month3Sub.getStylesheets().add("assets/virus.css");
         month6Sub.getStylesheets().add("assets/virus.css");
@@ -100,7 +100,7 @@ public class CtrlHomeSubscriptions implements Initializable
     private void backButtonAction()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("../scenes/HomePage.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/HomePage.fxml"));
             setNode(changedPane);
 
         }

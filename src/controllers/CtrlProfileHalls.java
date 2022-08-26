@@ -2,7 +2,6 @@ package controllers;
 
 import animatefx.animation.SlideInLeft;
 import com.jfoenix.controls.JFXButton;
-import database.MySQLdb;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CtrlProfileTrainers implements Initializable
+public class CtrlProfileHalls implements Initializable
 {
     @FXML
     private AnchorPane holderPane;
@@ -21,8 +20,6 @@ public class CtrlProfileTrainers implements Initializable
     private AnchorPane changedPane;
     @FXML
     private JFXButton back;
-
-    MySQLdb db = new MySQLdb();
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -34,7 +31,7 @@ public class CtrlProfileTrainers implements Initializable
     private void backButtonAction(ActionEvent event)
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("../scenes/ProfilePage.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/ProfilePage.fxml"));
             setNode(changedPane);
 
         }

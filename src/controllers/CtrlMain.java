@@ -114,7 +114,7 @@ public class CtrlMain implements Initializable
     {
         try
         {
-            changedPane = FXMLLoader.load(getClass().getResource("../scenes/Login.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/Login.fxml"));
             setNodeLogin(changedPane);
         }
         catch (IOException e) { e.printStackTrace();}
@@ -123,7 +123,7 @@ public class CtrlMain implements Initializable
     {
         try
         {
-            changedPane = FXMLLoader.load(getClass().getResource("../scenes/SignUp.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/SignUp.fxml"));
             setNodeSignUp(changedPane);
         }
         catch (IOException e) { e.printStackTrace();}

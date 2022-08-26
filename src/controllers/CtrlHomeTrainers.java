@@ -66,7 +66,7 @@ public class CtrlHomeTrainers implements Initializable
     private void backButtonAction()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("../scenes/HomePage.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/HomePage.fxml"));
             setNode(changedPane);
 
         }

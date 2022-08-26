@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CtrlHomeHalls implements Initializable
+public class CtrlProfileMap implements Initializable
 {
     @FXML
     private AnchorPane holderPane;
@@ -31,7 +31,7 @@ public class CtrlHomeHalls implements Initializable
     private void backButtonAction(ActionEvent event)
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("../scenes/HomePage.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/ProfilePage.fxml"));
             setNode(changedPane);
 
         }

@@ -71,9 +71,9 @@ public class CtrlSignUp implements Initializable
         tel.setStyle("-fx-text-inner-color: white;");
         email.setStyle("-fx-text-inner-color: white;");
         city.setStyle("-fx-text-inner-color: white;");
-        male.getStylesheets().add("assets/virus.css");
+        male.getStylesheets().add("src/assets/virus.css");
         male.setToggleGroup(tg);
-        female.getStylesheets().add("assets/virus.css");
+        female.getStylesheets().add("src/assets/virus.css");
         female.setToggleGroup(tg);
     }
 
@@ -109,7 +109,7 @@ public class CtrlSignUp implements Initializable
     {
         try
         {
-            changedPane = FXMLLoader.load(getClass().getResource("../scenes/Login.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/Login.fxml"));
             setNodeLogin(changedPane);
         }
         catch (IOException e) { e.printStackTrace();}
