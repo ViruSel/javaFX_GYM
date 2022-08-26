@@ -86,7 +86,7 @@ public class CtrlLogin implements Initializable
     {
         try
         {
-            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/SignUp.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/SignUp.fxml"));
             setNodeSignUp(changedPane);
         }
         catch (IOException e) { e.printStackTrace();}
@@ -113,7 +113,7 @@ public class CtrlLogin implements Initializable
                 Stage loginStage = (Stage) login.getScene().getWindow();
                 loginStage.close();
                 try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("src/scenes/Menu.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../scenes/Menu.fxml"));
                     Parent root = (Parent) fxmlLoader.load();
                     Stage menuStage = new Stage();
                     this.main.stage = menuStage;

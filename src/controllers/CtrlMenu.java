@@ -80,7 +80,7 @@ public class CtrlMenu implements Initializable
         mainStage.close();
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("src/scenes/Main.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../scenes/Main.fxml"));
             Parent root = (Parent) fxmlLoader.load();
             Stage loginStage = new Stage();
             this.main.stage = loginStage;
@@ -169,7 +169,7 @@ public class CtrlMenu implements Initializable
     private void setPageHome()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/Home.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/Home.fxml"));
             setNode(changedPane);
 
         }
@@ -179,7 +179,7 @@ public class CtrlMenu implements Initializable
     private void setPageProfile()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/Profile.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/Profile.fxml"));
             setNode(changedPane);
         }
         catch (IOException e) { e.printStackTrace(); }

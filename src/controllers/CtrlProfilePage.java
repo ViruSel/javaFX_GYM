@@ -50,7 +50,7 @@ public class CtrlProfilePage implements Initializable {
     private void setPageSubscriptions()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/ProfileSubscriptions.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/ProfileSubscriptions.fxml"));
             setNode(changedPane);
 
         } catch (IOException e) { e.printStackTrace(); }
@@ -59,7 +59,7 @@ public class CtrlProfilePage implements Initializable {
     private void setPageTrainers()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/ProfileTrainers.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/ProfileTrainers.fxml"));
             setNode(changedPane);
 
         } catch (IOException e) { e.printStackTrace(); }
@@ -68,7 +68,7 @@ public class CtrlProfilePage implements Initializable {
     private void setPageHalls()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/ProfileHalls.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/ProfileHalls.fxml"));
             setNode(changedPane);
 
         } catch (IOException e) { e.printStackTrace(); }
@@ -77,7 +77,7 @@ public class CtrlProfilePage implements Initializable {
     private void setPageMap()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/ProfileMap.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/ProfileMap.fxml"));
             setNode(changedPane);
 
         } catch (IOException e) { e.printStackTrace(); }

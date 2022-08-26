@@ -31,7 +31,7 @@ public class CtrlHomeHalls implements Initializable
     private void backButtonAction(ActionEvent event)
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/HomePage.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/HomePage.fxml"));
             setNode(changedPane);
 
         }

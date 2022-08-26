@@ -34,7 +34,7 @@ public class CtrlProfileTrainers implements Initializable
     private void backButtonAction(ActionEvent event)
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/ProfilePage.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/ProfilePage.fxml"));
             setNode(changedPane);
 
         }

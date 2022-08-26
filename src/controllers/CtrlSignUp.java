@@ -109,7 +109,7 @@ public class CtrlSignUp implements Initializable
     {
         try
         {
-            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/Login.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/Login.fxml"));
             setNodeLogin(changedPane);
         }
         catch (IOException e) { e.printStackTrace();}

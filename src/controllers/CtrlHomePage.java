@@ -53,7 +53,7 @@ public class CtrlHomePage implements Initializable
     private void setPageSubscriptions()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/HomeSubscriptions.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/HomeSubscriptions.fxml"));
             setNode(changedPane);
 
         }
@@ -63,7 +63,7 @@ public class CtrlHomePage implements Initializable
     private void setPageTrainers()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/HomeTrainers.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/HomeTrainers.fxml"));
             setNode(changedPane);
 
         }
@@ -73,7 +73,7 @@ public class CtrlHomePage implements Initializable
     private void setPageHalls()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/HomeHalls.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/HomeHalls.fxml"));
             setNode(changedPane);
 
         }
@@ -83,7 +83,7 @@ public class CtrlHomePage implements Initializable
     private void setPageFeedback()
     {
         try {
-            changedPane = FXMLLoader.load(getClass().getResource("src/scenes/HomeFeedback.fxml"));
+            changedPane = FXMLLoader.load(getClass().getResource("../scenes/HomeFeedback.fxml"));
             setNode(changedPane);
 
         } catch (IOException e) {
