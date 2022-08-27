@@ -1,5 +1,3 @@
-package tests;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,38 +7,29 @@ import static org.junit.jupiter.api.Assertions.*;
 class HallsTest {
 
     @BeforeEach
-    void setUp() {
-    }
+    void setUp() {}
 
     @AfterEach
-    void tearDown() {
-    }
+    void tearDown() {}
 
     @Test
-    void getId() {
-    }
+    void getId() {}
 
     @Test
-    void setId() {
-    }
+    void setId() {}
 
     @Test
-    void getCapacity() {
-    }
+    void getCapacity() {}
 
     @Test
-    void setCapacity() {
-    }
+    void setCapacity() {}
 
     @Test
-    void getName() {
-    }
+    void getName() {}
 
     @Test
-    void setName() {
-    }
+    void setName() {}
 
     @Test
-    void testToString() {
-    }
+    void testToString() {}
 }

@@ -1,5 +1,3 @@
-package tests;
-
 import database.TrainerData;
 import org.junit.jupiter.api.Test;
 
@@ -52,6 +50,4 @@ class TrainerDataTest
         assertEquals("TommyV", trainerData.getCustomer2());
         assertEquals("Claude", trainerData.getCustomer3());
     }
-
-
 }

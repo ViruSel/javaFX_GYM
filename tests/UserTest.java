@@ -1,5 +1,3 @@
-package tests;
-
 import database.User;
 import org.junit.jupiter.api.Test;
 
