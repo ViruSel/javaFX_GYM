@@ -8,7 +8,7 @@ import com.jfoenix.controls.JFXTextField;
 import database.DB;
 import database.User;
 import database.UserData;
-import gym.Main;
+import main.Main;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

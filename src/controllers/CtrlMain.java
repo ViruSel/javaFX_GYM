@@ -3,7 +3,7 @@ package controllers;
 import animatefx.animation.SlideInLeft;
 import animatefx.animation.SlideInRight;
 import com.jfoenix.controls.JFXButton;
-import gym.Main;
+import main.Main;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
